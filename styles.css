@@ -47,10 +47,11 @@ Partes de BB-8
     background: var(--background-color);
     border-radius: 100%;
     border: solid 8px var(--lines-color);
+    position: relative;
     overflow: hidden; /* Se deja de mostrar lo que se salga del container*/
 }
 
-.bb8-body > div {
+.circleBody {
     width: 16vmin;
     height: 16vmin;
     background: var(--circles-body);
@@ -59,7 +60,8 @@ Partes de BB-8
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 8px var(--lines-color)
+    border: solid 8px var(--lines-color);
+    overflow: hidden;
 }
 
 /*
@@ -76,17 +78,58 @@ Posiciones de los circulos amarillos del body
 }
 
 .circleBody3 {
-    width: 20vmin;
     bottom: 38vmin;
     right: 6vmin;
-    
 }
 
-.whiteCircle {
+.circleBody1, .circleBody2, .circleBody3 {
+    position: relative; 
+    z-index: 2;
+}
+
+/* Circulos blancos */
+.circleBody::after{
+    content: ""; 
     width: 6vmin;
     height: 6vmin;
     border-radius: 100%;
     background: var(--background-color);
     border: solid 8px var(--lines-color);
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+/* lineas del body */
+.line {
+    width: 60%;
+    height: 8px;
+    background: var(--lines-color);
+    position: absolute;
+    z-index: 1;
+}
+
+.line1 {
+    top: 50%;
+    left: -10%;
+    transform: translate(-50%, -50%);
+    transform: rotate(60deg);
+}
+
+.line2 {
+    top: 18%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    transform: rotate(20deg)
+}
+
+.line3 {
+    top: 55%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    transform: rotate(-40deg)
+}
+
 
