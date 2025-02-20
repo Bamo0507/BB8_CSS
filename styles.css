@@ -24,8 +24,8 @@
 }
 
 .circle {
-    width:80vmin;
-    height:80vmin;
+    width:100vmin;
+    height:90vmin;
     background: var(--circle-color);
     border-radius: 100%;
     display: flex;
@@ -55,7 +55,6 @@ Partes de BB-8
     transform: translate(-50%, -50%);
   
     overflow: hidden; /* Se deja de mostrar lo que se salga del container*/
-
 }
 
 /* Efecto de sombreado */
@@ -292,3 +291,104 @@ Cabeza de BB8
 /* 
 Lineas de la Imagen 
 */
+.dotted-line {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    
+    height: 1vmin;
+    width: 6vmin;
+    background: var(--lines-color);
+    border-radius: 9999px;
+    z-index: 3;
+}
+  
+.dotted-line::after {
+    content: "";
+    position: absolute;
+    top: 0;        
+    left: 7vmin;  
+    width: 4vmin;
+    height: 1vmin;
+    background: var(--lines-color);
+    border-radius: 9999px;
+}
+  
+.dotted-line1 {
+    top: 3%;
+    left: 46%;
+}
+  
+.dotted-line2 {
+    top: 11%;
+    left: 55%;
+}
+  
+.dotted-line3 {
+    top: 60%;
+    left: 89%;
+}
+
+/* linea normal */
+.normal-line {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    
+    height: 1vmin;
+    width: 5vmin;
+    background: var(--lines-color);
+    border-radius: 9999px;
+    z-index: 3;
+}
+
+.normal-line1 {
+    top: 15.3%;
+    left: 53%;
+}
+
+.normal-line2 {
+    top: 55%;
+    left: 83%;
+    z-index: 5;
+}
+
+/* lineas inferiores a bb8 */
+#dotted-line4 {
+    top: 80%;
+}
+
+#long-line {
+    position: absolute;
+    top: 80%;
+    left: 63%;
+
+    transform: translate(-50%, -50%);
+    
+    height: 1vmin;
+    width: 45vmin;
+    background: var(--lines-color);
+    border-radius: 9999px;
+    z-index: 3;
+}
+
+#dotted-line5 {
+    top: 80%;
+    left: 116%;
+}
+
+#normal-line3 {
+    width: 12vmin;
+    top: 90%;
+    left: 30%;
+}
+
+#normal-line4 {
+    width: 22vmin;
+    top: 90%;
+    left: 75%;
+}
+
+#normal-line5 {
+    width: 12vmin;
+    top: 100%;
+    left: 50%;
+}
