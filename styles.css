@@ -2,6 +2,7 @@
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
     --background-color: #f3f8fb;
+    --shade-color: #748e97;
     --lines-color: #244457;
     --circle-color: #5cb1a3;
     --circles-body: #f5bd3e;
@@ -29,7 +30,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 /*
@@ -50,6 +50,27 @@ Partes de BB-8
     position: relative;
     overflow: hidden; /* Se deja de mostrar lo que se salga del container*/
 }
+
+/* Efecto de sombreado */
+.shadow {
+    width: 30vmin;
+    height: 30vmin;
+    border-radius: 50%;
+    position: absolute;
+    /* Para la proxima:
+     - offsetX (como se mueve en x la sombra)
+     - offsetY (como se mueve en y la sombra)
+     - blurRadius (que tan fuerte quiero la sombra)
+     - color, y se le puede pasar el alpha de una si le mando el rgba
+    */
+    box-shadow: 15vmin 0vmin 10vmin var(--shade-color);
+    opacity: 0.5;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
 
 .circleBody {
     width: 16vmin;
@@ -127,9 +148,29 @@ Posiciones de los circulos amarillos del body
 
 .line3 {
     top: 55%;
-    left: 45%;
+    left: 35%;
     transform: translate(-50%, -50%);
-    transform: rotate(-40deg)
+    transform: rotate(-55deg)
 }
 
+/* Dots que estan en el body de bb8 */
+.dots {
+    width: 2.8vmin;
+    height: 2.8vmin;
+    border-radius: 100%;
+    background: var(--lines-color);
+    position: absolute;
+}
+
+.dots1 {
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.dots2 {
+    top: 80%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
 
