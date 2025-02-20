@@ -1,12 +1,12 @@
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
     --background-color: #f3f8fb;
     --shade-color: #748e97;
     --lines-color: #244457;
     --circle-color: #5cb1a3;
     --circles-body: #f5bd3e;
     --low-head: #a7d0e0;
+    --lens-odd: #295a6d;
+    --lens-even: #2a6a7f;
 }
 
 * {
@@ -39,8 +39,7 @@ Partes de BB-8
 .bb-8 {
     width:50vmin;
     height: 50vmin;
-    display: flex;
-    flex-direction: column;
+    position: relative;
 }
 
 .bb8-body {
@@ -49,7 +48,12 @@ Partes de BB-8
     background: var(--background-color);
     border-radius: 100%;
     border: solid 8px var(--lines-color);
-    position: relative;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
     overflow: hidden; /* Se deja de mostrar lo que se salga del container*/
 
 }
@@ -181,19 +185,24 @@ Posiciones de los circulos amarillos del body
 Cabeza de BB8
 */
 .bb8-head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20vmin;
-    height: 20vmin;
-    position: relative;
+    position: absolute; 
+    
+    width: 24vmin;
+    height: 24vmin;
+    
+    top: calc(50% - 15vmin); 
+    left: 50%;
+
+    transform: translate(-80%, -40%) rotate(-30deg);
+
+    z-index: 3;
 }
 
 /* Parte superior de la cabeza */
 .bb8-UppHead {
     position: relative;
     width: 20vmin;
-    height: 8vmin; 
+    height: 10vmin; 
     background-color: var(--background-color);
     border: 8px solid var(--lines-color);
     border-bottom: none; 
@@ -205,7 +214,7 @@ Cabeza de BB8
 .shadowHead {
     position: absolute;
     width: 22vmin;
-    height: 8vmin;
+    height: 10vmin;
     border-bottom: none; 
     border-top-left-radius: 10vmin; 
     border-top-right-radius: 10vmin;
@@ -220,8 +229,8 @@ Cabeza de BB8
 .bb8-LowHead {
     position: absolute;
 
-    width: 18.5vmin;
-    height: 1vmin; 
+    width: 19vmin;
+    height: 0vmin; 
 
     border-top: solid 0px transparent;
 	border-right: solid 1vmin transparent;
@@ -232,31 +241,54 @@ Cabeza de BB8
     top: 0%;
 
     transform: translate(-50%, 20%);
+
 }
 
 .bb8-LowHeadCrop {
     position: relative;
 
     width: 20vmin;
-    height: 1vmin; 
+    height: 0vmin; 
 
     border-top: solid 0px transparent;
 	border-right: solid 1vmin transparent;
-	border-bottom: solid 4vmin var(--lines-color);
+	border-bottom: solid 2vmin var(--lines-color);
 	border-left: solid 1vmin transparent;
-
 
     transform: rotate(180deg);
 
     z-index: 1;
 }
 
+.bb8-lens {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 6vmin;
+    height: 6vmin;
+    border-radius: 100%;
+    border: 8px solid var(--lines-color);
+
+    background: repeating-linear-gradient(
+            135deg,
+            var(--lens-even) 0%,  
+            var(--lens-even) 10%, 
+            var(--lens-odd) 10%,        
+            var(--lens-odd) 20%          
+        );
+}
+
+.dot-head {
+    width: 1.8vmin;
+    height: 1.8vmin;
+    top: 67%;
+    left: 76%;
+}
 
 
-
-
-
-
-
-
-
+/* 
+Lineas de la Imagen 
+*/
