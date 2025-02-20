@@ -6,6 +6,7 @@
     --lines-color: #244457;
     --circle-color: #5cb1a3;
     --circles-body: #f5bd3e;
+    --low-head: #a7d0e0;
 }
 
 * {
@@ -38,7 +39,8 @@ Partes de BB-8
 .bb-8 {
     width:50vmin;
     height: 50vmin;
-    background: red;
+    display: flex;
+    flex-direction: column;
 }
 
 .bb8-body {
@@ -49,6 +51,7 @@ Partes de BB-8
     border: solid 8px var(--lines-color);
     position: relative;
     overflow: hidden; /* Se deja de mostrar lo que se salga del container*/
+
 }
 
 /* Efecto de sombreado */
@@ -173,4 +176,87 @@ Posiciones de los circulos amarillos del body
     left: 75%;
     transform: translate(-50%, -50%);
 }
+
+/*
+Cabeza de BB8
+*/
+.bb8-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vmin;
+    height: 20vmin;
+    position: relative;
+}
+
+/* Parte superior de la cabeza */
+.bb8-UppHead {
+    position: relative;
+    width: 20vmin;
+    height: 8vmin; 
+    background-color: var(--background-color);
+    border: 8px solid var(--lines-color);
+    border-bottom: none; 
+    border-top-left-radius: 10vmin; 
+    border-top-right-radius: 10vmin;
+    z-index: 2; 
+}
+
+.shadowHead {
+    position: absolute;
+    width: 22vmin;
+    height: 8vmin;
+    border-bottom: none; 
+    border-top-left-radius: 10vmin; 
+    border-top-right-radius: 10vmin;
+    box-shadow: 10vmin 0vmin 10vmin var(--shade-color);
+    opacity: 0.5;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Parte inferior de la cabeza */
+.bb8-LowHead {
+    position: absolute;
+
+    width: 18.5vmin;
+    height: 1vmin; 
+
+    border-top: solid 0px transparent;
+	border-right: solid 1vmin transparent;
+	border-bottom: solid 3.5vmin var(--low-head);
+	border-left: solid 1vmin transparent;
+
+    left: 50%;
+    top: 0%;
+
+    transform: translate(-50%, 20%);
+}
+
+.bb8-LowHeadCrop {
+    position: relative;
+
+    width: 20vmin;
+    height: 1vmin; 
+
+    border-top: solid 0px transparent;
+	border-right: solid 1vmin transparent;
+	border-bottom: solid 4vmin var(--lines-color);
+	border-left: solid 1vmin transparent;
+
+
+    transform: rotate(180deg);
+
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
 
