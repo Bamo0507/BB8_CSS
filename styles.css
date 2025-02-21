@@ -7,6 +7,9 @@
     --low-head: #a7d0e0;
     --lens-odd: #295a6d;
     --lens-even: #2a6a7f;
+    --yellow-star: #fdc342;
+    --blue-star: #489cab;
+    --red-star: #ff7963;
 }
 
 * {
@@ -24,7 +27,8 @@
 }
 
 .circle {
-    width:100vmin;
+    position: relative;
+    width:110vmin;
     height:90vmin;
     background: var(--circle-color);
     border-radius: 100%;
@@ -391,4 +395,69 @@ Lineas de la Imagen
     width: 12vmin;
     top: 100%;
     left: 50%;
+}
+
+/*
+ESTRELLAS ATRAS DE BB8 
+*/
+.stars-container {
+    position: absolute;
+    left: 57%;
+    top: 22%;
+    width: 50vmin;
+    height: 40vmin;
+    margin: 0;
+    padding: 0;
+    z-index: 5;
+}
+  
+
+.stars {
+    list-style: none;
+}
+  
+.star {
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: var(--yellow-star); /* x default */
+}
+
+.star::before,
+.star::after {
+    content: "";
+    position: absolute;
+    background-color: currentColor; 
+    border-radius: 9999px;      
+}
+  
+/* Barra horizontal */
+.star::before {
+    width: 3vmin;   
+    height: 1vmin;   
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+/* Barra vertical */
+.star::after {
+    width: 1vmin;    
+    height: 3vmin;  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+/* Asignnacion de colores */
+.stars li:nth-child(3n + 1) {
+    color: var(--yellow-star);
+}
+  
+.stars li:nth-child(3n + 2) {
+    color: var(--blue-star);
+}
+  
+.stars li:nth-child(3n + 3) {
+    color: var(--red-star);
 }
