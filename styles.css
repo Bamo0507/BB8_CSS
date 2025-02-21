@@ -2,7 +2,12 @@
     --background-color: #f3f8fb;
     --shade-color: #748e97;
     --lines-color: #244457;
-    --circle-color: #5cb1a3;
+
+    --circle-color1: #48aaad;
+    --circle-color2: #52b2bf;
+    --circle-color3: #0492c2;
+
+
     --circles-body: #f5bd3e;
     --low-head: #a7d0e0;
 
@@ -35,7 +40,9 @@
     position: relative;
     width:110vmin;
     height:90vmin;
-    background: var(--background-color);
+    background: linear-gradient(135deg, var(--circle-color1), var(--circle-color2), var(--circle-color3));
+    background-size: 400% 400%;
+    animation: gradientAnim 3s ease infinite;
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -56,7 +63,7 @@ Partes de BB-8
     height: 30vmin;
     background: var(--background-color);
     border-radius: 100%;
-    border: solid 8px var(--lines-color);
+    border: solid calc(0.3px + 1vmin) var(--lines-color);
     position: absolute;
 
     top: 50%;
@@ -81,7 +88,7 @@ Partes de BB-8
      - blurRadius (que tan fuerte quiero la sombra)
      - color, y se le puede pasar el alpha de una si le mando el rgba
     */
-    box-shadow: 9vmin 0vmin 10vmin var(--shade-color);
+    box-shadow: 9vmin 1vmin 10vmin var(--shade-color);
     opacity: 0.5;
     left: 42%;
     top: 50%;
@@ -99,7 +106,7 @@ Partes de BB-8
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 8px var(--lines-color);
+    border: solid calc(0.3px + 1vmin) var(--lines-color);
     overflow: hidden;
 }
 
@@ -133,7 +140,7 @@ Posiciones de los circulos amarillos del body
     height: 6vmin;
     border-radius: 100%;
     background: var(--background-color);
-    border: solid 8px var(--lines-color);
+    border: solid calc(0.3px + 1vmin) var(--lines-color);
     
     position: absolute;
     top: 50%;
@@ -144,7 +151,7 @@ Posiciones de los circulos amarillos del body
 /* lineas del body */
 .line {
     width: 60%;
-    height: 8px;
+    height: calc(0.3px + 1vmin);
     background: var(--lines-color);
     position: absolute;
     z-index: 1;
@@ -217,7 +224,7 @@ Cabeza de BB8
     width: 20vmin;
     height: 10vmin; 
     background-color: var(--background-color);
-    border: 8px solid var(--lines-color);
+    border: calc(0.3px + 1vmin) solid var(--lines-color);
     border-bottom: none; 
     border-top-left-radius: 10vmin; 
     border-top-right-radius: 10vmin;
@@ -281,7 +288,7 @@ Cabeza de BB8
     width: 6vmin;
     height: 6vmin;
     border-radius: 100%;
-    border: 8px solid var(--lines-color);
+    border: calc(0.3px + 1vmin) solid var(--lines-color);
     background: repeating-linear-gradient(
             135deg,
             var(--lens-even) 0%,  
@@ -538,8 +545,6 @@ ANIMACIONES
       }
 }
 
-
-
 @keyframes headTilt {
     0% {
       transform: translate(-80%, -40%) rotate(-30deg);
@@ -558,5 +563,17 @@ ANIMACIONES
     }
     100% {
       transform: translateX(5%);
+    }
+}
+
+@keyframes gradientAnim {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
 }
