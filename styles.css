@@ -58,6 +58,28 @@ Partes de BB-8
     position: relative;
 }
 
+.bb-8 > .dotted-line {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    
+    height: 1vmin;
+    width: 6vmin;
+    background: var(--lines-color);
+    border-radius: 9999px;
+    z-index: 3;
+}
+
+.bb-8 > .normal-line {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    
+    height: 1vmin;
+    width: 5vmin;
+    background: var(--lines-color);
+    border-radius: 9999px;
+    z-index: 3;
+}
+
 .bb8-body {
     width: 30vmin;
     height: 30vmin;
@@ -75,9 +97,29 @@ Partes de BB-8
     animation: spinEffect 0.7s linear infinite;
 }
 
+.bb8-body > .circleBody{
+    width: 16vmin;
+    height: 16vmin;
+    background: var(--circles-body);
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid calc(0.3px + 1vmin) var(--lines-color);
+    overflow: hidden;
+}
+
+.bb8-body > .dots {
+    width: 2.8vmin;
+    height: 2.8vmin;
+    border-radius: 100%;
+    background: var(--lines-color);
+    position: absolute;
+}
 
 /* Efecto de sombreado */
-.shadow {
+.bb8-body + .shadow {
     width: 30vmin;
     height: 30vmin;
     border-radius: 50%;
@@ -94,20 +136,6 @@ Partes de BB-8
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-}
-
-
-.circleBody {
-    width: 16vmin;
-    height: 16vmin;
-    background: var(--circles-body);
-    border-radius: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid calc(0.3px + 1vmin) var(--lines-color);
-    overflow: hidden;
 }
 
 /*
@@ -149,7 +177,7 @@ Posiciones de los circulos amarillos del body
 }
 
 /* lineas del body */
-.line {
+.circleBody ~ .line {
     width: 60%;
     height: calc(0.3px + 1vmin);
     background: var(--lines-color);
@@ -162,6 +190,7 @@ Posiciones de los circulos amarillos del body
     left: -10%;
     transform: translate(-50%, -50%);
     transform: rotate(60deg);
+    background: var(--circles-body);
 }
 
 .line2 {
@@ -179,14 +208,6 @@ Posiciones de los circulos amarillos del body
 }
 
 /* Dots que estan en el body de bb8 */
-.dots {
-    width: 2.8vmin;
-    height: 2.8vmin;
-    border-radius: 100%;
-    background: var(--lines-color);
-    position: absolute;
-}
-
 .dots1 {
     top: 50%;
     left: 45%;
@@ -336,17 +357,6 @@ Cabeza de BB8
 /* 
 Lineas de la Imagen 
 */
-.dotted-line {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    
-    height: 1vmin;
-    width: 6vmin;
-    background: var(--lines-color);
-    border-radius: 9999px;
-    z-index: 3;
-}
-  
 .dotted-line::after {
     content: "";
     position: absolute;
@@ -374,17 +384,6 @@ Lineas de la Imagen
 }
 
 /* linea normal */
-.normal-line {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    
-    height: 1vmin;
-    width: 5vmin;
-    background: var(--lines-color);
-    border-radius: 9999px;
-    z-index: 3;
-}
-
 .normal-line1 {
     top: 15.3%;
     left: 53%;
@@ -491,7 +490,7 @@ ESTRELLAS ATRAS DE BB8 
     left: 50%;
     transform: translate(-50%, -50%);
 }
-  
+
 /* Asignnacion de colores */
 .stars li:nth-child(3n + 1) {
     color: var(--yellow-star);
