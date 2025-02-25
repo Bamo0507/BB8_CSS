@@ -38,11 +38,11 @@
 
 .circle {
     position: relative;
-    width:110vmin;
-    height:90vmin;
-    background: linear-gradient(135deg, var(--circle-color1), var(--circle-color2), var(--circle-color3));
+    width: 110vmin;
+    height: 90vmin;
+    background: radial-gradient(circle at center, var(--circle-color1), var(--circle-color2), var(--circle-color3));
     background-size: 400% 400%;
-    animation: gradientAnim 3s ease infinite;
+    animation: gradientAnim 8s ease infinite;
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -119,24 +119,28 @@ Partes de BB-8
 }
 
 /* Efecto de sombreado */
-.bb8-body + .shadow {
-    width: 30vmin;
-    height: 30vmin;
-    border-radius: 50%;
-    position: absolute;
-    /* Para la proxima:
+/* Para la proxima:
      - offsetX (como se mueve en x la sombra)
      - offsetY (como se mueve en y la sombra)
      - blurRadius (que tan fuerte quiero la sombra)
      - color, y se le puede pasar el alpha de una si le mando el rgba
-    */
+*/
+
+/* Lo comento solo para la entrega :) no se puede usar box-shadow */
+
+/* .bb8-body + .shadow {
+    width: 30vmin;
+    height: 30vmin;
+    border-radius: 50%;
+    position: absolute;
+    
     box-shadow: 9vmin 1vmin 10vmin var(--shade-color);
     opacity: 0.5;
     left: 42%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-}
+} */
 
 /*
 Posiciones de los circulos amarillos del body
@@ -252,7 +256,8 @@ Cabeza de BB8
     z-index: 2; 
 }
 
-.shadowHead {
+/* Comentado solo para la entrega */
+/* .shadowHead {
     position: absolute;
     width: 22vmin;
     height: 10vmin;
@@ -264,7 +269,7 @@ Cabeza de BB8
     left: 35%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 /* Parte inferior de la cabeza */
 .bb8-LowHead {
@@ -301,7 +306,7 @@ Cabeza de BB8
     z-index: 1;
 }
 
-.bb8-lens {
+.dots + .bb8-lens {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -310,17 +315,18 @@ Cabeza de BB8
     height: 6vmin;
     border-radius: 100%;
     border: calc(0.3px + 1vmin) solid var(--lines-color);
-    background: repeating-linear-gradient(
-            135deg,
-            var(--lens-even) 0%,  
-            var(--lens-even) 10%, 
-            var(--lens-odd) 10%,        
-            var(--lens-odd) 20%          
+  
+    background: repeating-conic-gradient(
+      from 135deg,              
+      var(--lens-even) 0% 10%,
+      var(--lens-odd)  10% 20% 
     );
+
+    background-size: cover;
     z-index: 5;
     overflow: hidden;
 }
-
+  
 .bb8-lens::after {
     content: "";
     position: absolute;
@@ -328,29 +334,32 @@ Cabeza de BB8
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(
-            135deg,
-            var(--lens-even-alt) 0%,  
-            var(--lens-even-alt) 10%, 
-            var(--lens-odd-alt) 10%,        
-            var(--lens-odd-alt) 20%          
+  
+    /* Versión “alternativa” en el hover */
+    background: repeating-conic-gradient(
+      from 135deg,
+      var(--lens-even-alt) 0% 10%,
+      var(--lens-odd-alt)  10% 20%
     );
+  
     opacity: 0;
     transition: opacity 1.5s ease;
-    pointer-events: none; /* Para que no interfiera con el hover */
+    pointer-events: none;
 }
-
-/* Para generar transicion, nos vamos del normal, al after que tiene el alt */
+  
 .bb8-lens:hover::after {
     opacity: 1;
 }
 
 
 .dot-head {
-    width: 1.8vmin;
-    height: 1.8vmin;
-    top: 67%;
-    left: 76%;
+    position: absolute;
+    width: 1.5vmin;
+    height: 1.5vmin;
+    top: 74%;
+    left: 77%;
+    background: var(--lines-color);
+    border-radius: 100%;
 }
 
 
@@ -458,7 +467,7 @@ ESTRELLAS ATRAS DE BB8 
     list-style: none;
 }
   
-.star {
+.stars-container .star {
     position: absolute;
     width: 0;
     height: 0;
